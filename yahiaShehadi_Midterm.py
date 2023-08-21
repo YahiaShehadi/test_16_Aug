@@ -7,8 +7,8 @@ from datetime import datetime
 # # create time and date stamps
 now = str(datetime.now())
 dateOnly = now.split(" ", 1)
-print(dateOnly[0])  #date
-print(now)  #date and time
+# print(dateOnly[0])  #date
+# print(now)  #date and time
 
 count = 0
 userName = "incorrect"
@@ -52,7 +52,7 @@ def addEmployee():
   f = open("data.txt", "a")
   f.write("\n" + empId + ", " + name + ", " + dateOnly[0] + ", " + gender +
           ", " + str(salary))
-  print(asd, name, dateOnly[0], gender, salary)
+  print("new added: ",asd, name, dateOnly[0], gender, salary)
 
 
 
@@ -135,7 +135,34 @@ while count < 5 and (userName != correctUserName
             fin.close()
     elif num== 7:
       break  
-      
+    
+  with open ("data.txt", "r") as f :
+      for i in f:
+        a = i.split()
+        C_userName =userName+","
+        if C_userName == a[1] :
+          if a[3] == "male,":
+            g="Mr."
+          else :
+            g="Ms."
+          print("Hi "+g+" "+userName)
+          print("1. Check my Salar")
+          print("2. Exit")
+          num2 = int(input("Please enter your choise:  "))
+          if num2 == 1 :
+            print ("your salary is "+a[4])
+          elif num2 ==2:
+            
+            f = open("myfile.txt", "a")
+            now = str(datetime.now())
+            f.write("\n"+userName+", "+now)
+            break
+          
+
+          
       
             
 
+
+
+ 
