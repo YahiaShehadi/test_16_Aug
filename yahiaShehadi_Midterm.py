@@ -76,4 +76,18 @@ while count < 5 and (userName != correctUserName
 
     elif num == 2:
       addEmployee()
-
+    elif num == 3:
+      with open("data.txt","r") as f:
+        print(f.read())    
+    elif num == 4:
+      with open("data.txt", "r") as f:
+        theID = input("enter employee ID to change the salary: ")
+        theid = theID+","
+        print(theID)
+        for i in f:
+          a = i.split()
+          print(a[0])
+          if theid == a[0]:
+            newSalary= input("enter the new salary: ")
+            with open("data.txt", "a") as wr:
+              wr.write(a[4](str(newSalary)))    
