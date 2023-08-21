@@ -1,3 +1,15 @@
 ‏7:38 م
 git config --global user.name "YOUR USER NAME"‏
 git config --global user.email "YOUR EMAIL
+
+first
+select folder right click open gitbash
+git clone copy "ssh" link
+
+git add.
+git commit -m"new added"
+git push origin main
+
+
+	
+	
