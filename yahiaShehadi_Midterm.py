@@ -1,8 +1,8 @@
 # #main page of the system
 # #resourses w3schools.com
 # set the admin
-correctUserName = "aa"
-correctPassword = "aa"
+correctUserName = "admin"
+correctPassword = "admin123123"
 from datetime import datetime
 # # create time and date stamps
 now = str(datetime.now())
@@ -22,6 +22,7 @@ def displayStatistics():
   with open('data.txt') as f:
     for x in f:
       a = x.split()
+      # print(a[3])
       if a[3] == "male,":
         male += 1
       else:
@@ -54,6 +55,8 @@ def addEmployee():
   print(asd, name, dateOnly[0], gender, salary)
 
 
+
+
 while count < 5 and (userName != correctUserName
                      or password != correctPassword):
   # insertUserName()
@@ -78,16 +81,61 @@ while count < 5 and (userName != correctUserName
       addEmployee()
     elif num == 3:
       with open("data.txt","r") as f:
-        print(f.read())    
+        print(f.read())
+        
     elif num == 4:
       with open("data.txt", "r") as f:
         theID = input("enter employee ID to change the salary: ")
-        theid = theID+","
-        print(theID)
+        theId = theID+","
         for i in f:
           a = i.split()
-          print(a[0])
-          if theid == a[0]:
+          if theId == a[0]:
             newSalary= input("enter the new salary: ")
-            with open("data.txt", "a") as wr:
-              wr.write(a[4](str(newSalary)))    
+#     https://pythonexamples.org/python-replace-string-in-file/       
+            fin = open("data.txt", "rt")
+            data = fin.read()
+            data = data.replace(a[4], newSalary)
+            fin.close()
+            fin = open("data.txt", "wt")
+            fin.write(data)
+            fin.close()
+    elif num == 5:
+      with open("data.txt", "r") as f:
+        theID = input("enter the ID to remove the employee: ")
+        theId = theID+","
+        for i in f:
+          a = i.split()
+          if theId == a[0]:
+#     https://pythonexamples.org/python-replace-string-in-file/                 
+            print(a[1]," is removed")
+            fin = open("data.txt", "rt")
+            data = fin.read()
+            data = data.replace(i, "")
+            fin.close()
+            fin = open("data.txt", "wt")
+            fin.write(data)
+            fin.close()
+    elif num== 6 :
+      with open("data.txt", "r") as f:
+        theID = input("enter the ID to raise the salary of an employee: ")
+        theId = theID+","
+        for i in f:
+          a = i.split()
+          if theId == a[0]:
+#     https://pythonexamples.org/python-replace-string-in-file/                 
+            rParcent=float(input("enter raise percentage: "))
+            x = float(a[4])
+            newSalary= x*rParcent
+            fin = open("data.txt", "rt")
+            data = fin.read()
+            data = data.replace(a[4], str(newSalary))
+            fin.close()
+            fin = open("data.txt", "wt")
+            fin.write(data)
+            fin.close()
+    elif num== 7:
+      break  
+      
+      
+            
+
