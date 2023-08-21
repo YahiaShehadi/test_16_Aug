@@ -1,0 +1,3 @@
+‏7:38 م
+git config --global user.name "YOUR USER NAME"‏
+git config --global user.email "YOUR EMAIL
